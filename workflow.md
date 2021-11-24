@@ -1,4 +1,5 @@
-- [] Mint an NFT with Scaffold Eth and hardhat ()
-- [] Set up my Hardhat testing env from scratch
-  - hardhat, yarn, typescript, typechain
-- []  
+- [x] Mint an NFT with Scaffold Eth and hardhat
+- [x] Set up my Hardhat testing env 
+- [x] Test basic NFT mint
+- [x] Write deploy script `yh run scripts/deploy.ts --network localhost`
+- [x] Connect a wallet in frontend (thanks next.js and web3-react)
