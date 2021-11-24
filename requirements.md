@@ -23,7 +23,11 @@ Please answer the following questions. Does your project:
     - [ ] avoiding_common_attacks
 
 5. Have at least five smart contract unit tests that pass
-    - [ ] 5 Hardhat tests
+    - [x] correct ERC 721 Name and Symbol
+    - [x] limits minting to 1 per address
+    - [ ] only allows whitelisted address
+    - [ ] whitelist is correct 
+    - [ ] mints correct NFT design
 
 6. Contain a `deployed_address.txt` file which contains the testnet address and network where your contract(s) have been deployed? YES/NO
      - [ ] deployed_address.txt
