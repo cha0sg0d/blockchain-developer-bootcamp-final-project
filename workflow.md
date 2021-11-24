@@ -1,0 +1,4 @@
+- [] Mint an NFT with Scaffold Eth and hardhat ()
+- [] Set up my Hardhat testing env from scratch
+  - hardhat, yarn, typescript, typechain
+- []  
