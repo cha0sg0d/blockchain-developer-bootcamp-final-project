@@ -3,3 +3,5 @@
 - [x] Test basic NFT mint
 - [x] Write deploy script `yh run scripts/deploy.ts --network localhost`
 - [x] Connect a wallet in frontend (thanks next.js and web3-react)
+- [x] Connect to Reward contract via frontend
+- [x] Approve tx with metamask
