@@ -2,3 +2,5 @@ node_modules/
 typechain/
 cache/
 artifacts/
+yarn.lock
+yarn-error.log
