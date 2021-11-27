@@ -13,19 +13,19 @@ Please answer the following questions. Does your project:
 
 3. Contain smart contract(s) which:
     - [ ] Are commented to the specs described by NatSpec Solidity documentation
-    - [ ] Use at least two design patterns from the "Smart Contracts" section
-    - [ ] Protect against two attack vectors from the "Smart Contracts" section with its the SWC number
-    - [ ] Inherits from at least one library or interface
+    - [x] Use at least two design patterns from the "Smart Contracts" section
+    - [x] Protect against two attack vectors from the "Smart Contracts" section with its SWC number
+    - [x] Inherits from at least one library or interface
     - [ ] Can be easily compiled, migrated and tested? YES/NO
 
 4.  Contain a Markdown file named design_pattern_decisions.md and avoiding_common_attacks.md? 
-    - [ ] design_pattern_decisision
-    - [ ] avoiding_common_attacks
+    - [x] design_pattern_decisision
+    - [x] avoiding_common_attacks
 
 5. Have at least five smart contract unit tests that pass
     - [x] correct ERC 721 Name and Symbol
     - [x] limits minting to 1 per address
-    - [ ] only allows whitelisted address
+    - [x] only allows whitelisted address (need some sort of bridge)
     - [ ] whitelist is correct 
     - [ ] mints correct NFT design
 
@@ -33,8 +33,8 @@ Please answer the following questions. Does your project:
      - [ ] deployed_address.txt
 
 7. Have a frontend interface built with a framework like React or HTML/CSS/JS that:
-    - [ ] Detects the presence of MetaMask
-    - [ ] Connects to the current account
+    - [x] Detects the presence of MetaMask
+    - [x] Connects to the current account
     - [ ] Displays information from your smart contract
     - [ ] Allows a user to submit a transaction to update smart contract state
     - [ ] Updates the frontend if the transaction is successful or not? YES/NO

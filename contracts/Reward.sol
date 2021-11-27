@@ -26,20 +26,25 @@ contract Reward is ERC721URIStorage, Ownable {
     _;
   }
 
-  function mint(address to)
+  function mint()
       public
       isWhitelisted
       returns (uint256 id)
   { 
       // better pattern for this?
-      require(balanceOf(msg.sender) < 1, "Can only mint 1 NFT");
+      require(balanceOf(msg.sender) == 0, "Can only mint 1 NFT");
 
       _tokenIds.increment();
 
       id = _tokenIds.current();
-      _safeMint(to, id);
+
+      _safeMint(msg.sender, id);
       // ignoring URI for now
       // _setTokenURI(id, tokenURI);
       return id;
+  }
+
+  function terminate() public onlyOwner {
+    selfdestruct(payable (owner()));
   }
 }

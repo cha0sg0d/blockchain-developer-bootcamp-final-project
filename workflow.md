@@ -5,3 +5,4 @@
 - [x] Connect a wallet in frontend (thanks next.js and web3-react)
 - [x] Connect to Reward contract via frontend
 - [x] Approve tx with metamask
+- [x] Add necessary smart contract patterns  
