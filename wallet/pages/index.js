@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 import { injected } from "../components/wallet/connector";
+import { Mint } from "../components/mint";
 import { useWeb3React } from '@web3-react/core';
 
 export default function Home() {
@@ -15,21 +16,21 @@ export default function Home() {
     deactivate // method to disconnect from wallet
   } = useWeb3React();
 
-  
-
   async function connect () {
     try {
       await activate(injected)
     } catch (error) {
-      console.log()
+      console.log(error)
     }
   }
 
   async function disconnect () {
     try {
+      console.log("network", library)
+      console.log("connector", connector)
       await deactivate()
     } catch (error) {
-      console.log()
+      console.log(error)
     }
   }
 
@@ -45,8 +46,17 @@ export default function Home() {
         <button onClick={connect}>Connect to Metamask</button>
         <button onClick={disconnect}>Disconnect</button>
         {active ?  
-          <span>Connected with <b>{account}</b></span> : 
+          <div>
+            <span>Connected with <b>{account}</b></span>
+          </div>
+          
+          : 
           <span>Not connected</span>
+        }
+        {active ? 
+          <Mint/>
+          :
+          null
         }
       </main>
     </div>
