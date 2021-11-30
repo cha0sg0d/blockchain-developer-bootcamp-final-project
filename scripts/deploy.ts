@@ -6,20 +6,18 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  // Hardhat always runs the compile task when running scripts with its command
-  // line interface.
-  //
-  // If this script is run directly using `node` you may want to call compile
-  // manually to make sure everything is compiled
-  // await hre.run('compile');
+  const [owner] = await ethers.getSigners();
+  const Vote = await ethers.getContractFactory("Vote", owner);
+  const vote = await Vote.deploy();
 
-  // We get the contract to deploy
-  const Reward = await ethers.getContractFactory("Reward");
-  const reward = await Reward.deploy();
+  await vote.deployed();
+  console.log("Vote deployed to:", vote.address);
+  const uri =
+    "https://ethresear.ch/t/mev-boost-merge-ready-flashbots-architecture/11177";
+  const createTx = await vote.createProposal(uri);
 
-  await reward.deployed();
-
-  console.log("Reward deployed to:", reward.address);
+  await createTx.wait();
+  console.log("Vote deployed to:", vote.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
