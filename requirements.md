@@ -14,8 +14,13 @@ Please answer the following questions. Does your project:
 3. Contain smart contract(s) which:
     - [ ] Are commented to the specs described by NatSpec Solidity documentation
     - [x] Use at least two design patterns from the "Smart Contracts" section
+      - [x] Access Control
+      - [x] Circuit Breaker 
     - [x] Protect against two attack vectors from the "Smart Contracts" section with its SWC number
+      - [x] SWC-106 Unprotected SELF-DESTRUCT
+      - [x] SWC-115 Authorization through `tx.origin`
     - [x] Inherits from at least one library or interface
+      - [x] OpenZeppelin Ownable
     - [ ] Can be easily compiled, migrated and tested? YES/NO
 
 4.  Contain a Markdown file named design_pattern_decisions.md and avoiding_common_attacks.md? 
@@ -23,11 +28,11 @@ Please answer the following questions. Does your project:
     - [x] avoiding_common_attacks
 
 5. Have at least five smart contract unit tests that pass
-    - [x] correct ERC 721 Name and Symbol
-    - [x] limits minting to 1 per address
-    - [x] only allows whitelisted address (need some sort of bridge)
-    - [ ] whitelist is correct 
-    - [ ] mints correct NFT design
+    - [x] only owner can add proposals
+    - [x] users can only vote 1 time
+    - [x] only allows whitelisted address
+    - [ ] only owner can modify proposals
+    - [ ] only owner can self-destruct
 
 6. Contain a `deployed_address.txt` file which contains the testnet address and network where your contract(s) have been deployed? YES/NO
      - [ ] deployed_address.txt

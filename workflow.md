@@ -5,4 +5,7 @@
 - [x] Connect a wallet in frontend (thanks next.js and web3-react)
 - [x] Connect to Reward contract via frontend
 - [x] Approve tx with metamask
-- [x] Add necessary smart contract patterns  
+- [x] Add best practices + security measures for smart contract
+- [ ] Simple whitelist rule
+- [ ] Make NFT cool? 
+- [x] view data from contract in frontend 
