@@ -1,0 +1,35 @@
+.container {
+  height: 100%;
+  flex-grow: 1;
+}
+
+.proposal {
+  display: flex;
+  margin: 32px 0;
+  justify-content: space-between;
+}
+
+.voteButton {
+  border: 0;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.voteButton:disabled {
+  color: white;
+  cursor: default;
+}
+
+.voteButtonFor {
+  border: 0;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.voteButtonFor:disabled {
+  background: green;
+  color: white;
+  cursor: default;
+}
