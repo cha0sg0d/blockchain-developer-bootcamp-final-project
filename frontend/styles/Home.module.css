@@ -1,6 +1,10 @@
 .container {
   padding: 0 2rem;
-  background-color: #252525;
+  width: 1024px;
+  margin: 0 auto; /* top bottom left right */
+  max-width: 100%;
+
+  /* background-color: #252525; */
 }
 
 .main {

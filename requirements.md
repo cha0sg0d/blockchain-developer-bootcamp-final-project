@@ -40,9 +40,10 @@ Please answer the following questions. Does your project:
 7. Have a frontend interface built with a framework like React or HTML/CSS/JS that:
     - [x] Detects the presence of MetaMask
     - [x] Connects to the current account
-    - [ ] Displays information from your smart contract
-    - [ ] Allows a user to submit a transaction to update smart contract state
-    - [ ] Updates the frontend if the transaction is successful or not? YES/NO
+    - [x] Displays information from your smart contract
+    - [x] Allows a user to submit a transaction to update smart contract state
+    - [x] Basic styling
+    - [ ] Updates the frontend if the transaction is successful or not?
 
 8. Hosted on Github Pages, Heroku, Netlify, Fleek, or some other free frontend service that gives users a public interface to your decentralized application? (That address should be in your README.md document) YES/NO
     - [ ] Hosted? 
