@@ -10,6 +10,7 @@ export const useWallet = async () => {
   const provider = new ethers.providers.Web3Provider(window.ethereum)
   const signer = library.getSigner();
   console.log("signer", signer);
+  console.log('chainId', library.chainId);
   console.log("txCount", await signer.getTransactionCount())
 
   return account

@@ -4,14 +4,18 @@ import { useWeb3React } from "@web3-react/core"
 import { useState, useEffect } from "react";
 import { Vote } from "./vote";
 import { Proposal } from "./proposal";
+import { colors } from "../helpers/theme";
 
 export const Landing = () => {
+
+
   // connect to contract with wallet.
   const {
     account,
   } = useWeb3React()
 
   const wallet = useWallet();
+
   const vote = useContract();
 
   const [voted, setVoted] = useState(false);

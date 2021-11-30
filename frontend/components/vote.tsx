@@ -12,7 +12,6 @@ export const Vote = ({
   } = useWeb3React()
 
   console.log('signer', library.getSigner());
-  
   const sendVote = async () => {
     try {
       /* nonce item */
