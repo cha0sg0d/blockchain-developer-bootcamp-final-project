@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 import { injected } from "../components/wallet/connector";
-import { Mint } from "../components/mint";
+import { Landing } from "../components/landing";
 import { useWeb3React } from '@web3-react/core';
 
 export default function Home() {
@@ -43,18 +43,20 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <button onClick={connect}>Connect to Metamask</button>
-        <button onClick={disconnect}>Disconnect</button>
+        
         {active ?  
           <div>
-            <span>Connected with <b>{account}</b></span>
+            <p>Connected with <b>{account}</b></p>
+            <button onClick={disconnect}>Disconnect</button>
           </div>
-          
           : 
-          <span>Not connected</span>
+          <div>
+            <p>Not connected</p>
+            <button onClick={connect}>Connect to Metamask</button>
+          </div>
         }
         {active ? 
-          <Mint/>
+          <Landing/>
           :
           null
         }
