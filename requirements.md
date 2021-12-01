@@ -56,6 +56,6 @@ Please answer the following questions. Does your project:
     - [ ] Running your smart contract unit tests and which port a local testnet should be running on. YES/NO
 
 10. A screencast of you walking through your project?
-    - [ ] screencast
+    - [x] screencast
 
 Congratulations on finishing your final project!
