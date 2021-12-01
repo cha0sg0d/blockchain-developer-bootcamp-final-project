@@ -48,12 +48,12 @@ Please answer the following questions. Does your project:
     - [x] Updates the frontend if the transaction is successful or not?
 
 8. Hosted on Github Pages, Heroku, Netlify, Fleek, or some other free frontend service that gives users a public interface to your decentralized application? (That address should be in your README.md document) YES/NO
-    - [ ] Hosted? 
+    - [x] Hosted? 
 
 9. Have clear instructions for: 
-    - [ ] Installing dependencies for your project 
+    - [x] Installing dependencies for your project 
     - [x] No server if your project needs a server (not required) running your project
-    - [ ] Running your smart contract unit tests and which port a local testnet should be running on. YES/NO
+    - [x] Running your smart contract unit tests and which port a local testnet should be running on. YES/NO
 
 10. A screencast of you walking through your project?
     - [x] screencast

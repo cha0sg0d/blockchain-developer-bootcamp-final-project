@@ -7,6 +7,9 @@ With the increasing effectiveness of L2 solutions for Ethereum, it is likely tha
 The current most popular voting solution, Snapshot, does not have voting on chain.
 I have created Starshot, a simple Dapp for on-chain voting.
 
+### Deployed Frontend
+(starshot)[https://starshot-voting-cha0sg0d.vercel.app]
+
 ### Admin flow
 *Note: must be owner of contract*
 1. Create a proposal and list the options that can be voted on
@@ -24,11 +27,19 @@ I have created Starshot, a simple Dapp for on-chain voting.
 - `scripts/` contains the `deploy.ts` deployment script and populates a sample proposal.
 - `frontend` contains the frontend.
 
-### How to Run 
+### How to Run Tests
 1. `git clone https://github.com/cha0sg0d/blockchain-developer-bootcamp-final-project.git`
 2. `yarn`
+3. `yarn hardhat compile`
 3. `yarn hardhat test`
-4. 
+
+### How to Deploy locally
+1. `yarn hardhat run scripts/deploy.ts --network localhost`
+
+### How to Run Frontend
+1. `cd frontend`
+2. `yarn`
+3. `yarn run dev`
 
 ### Verified Public Contract on Rinkeby
 [contract](https://rinkeby.etherscan.io/address/0x697E6d5f8053Af5AeE6cD6f7eCEb81764CfCB84f)
