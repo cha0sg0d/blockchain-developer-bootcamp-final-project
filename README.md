@@ -1,5 +1,5 @@
 # Starshot
-[starshot_pic](pic.png)
+![starshot_pic](pic.png)
 
 ### Description
 With the increasing effectiveness of L2 solutions for Ethereum, it is likely that on-chain voting will occur more often.
