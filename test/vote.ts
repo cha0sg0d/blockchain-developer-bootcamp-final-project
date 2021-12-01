@@ -1,4 +1,3 @@
-import { BigNumber } from "@ethersproject/bignumber";
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 import { expect } from "chai";
 import { ethers } from "hardhat";
@@ -116,9 +115,5 @@ describe("Vote", function () {
       const option = await vote.options(choice.id);
       expect(option.votes).to.equal(1);
     });
-
   });
-  // it("user can vote on proposal", async function () {
-
-  // });
 });
