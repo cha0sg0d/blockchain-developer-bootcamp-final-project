@@ -1,13 +1,24 @@
 import { useState, useEffect } from "react";
 import { useContract } from "./use-contract";
+import { BigNumber } from "@ethersproject/bignumber";
 
-type Proposal = {
-  id: number
+export type Option = {
+  id: BigNumber
+  proposalId: BigNumber
+  votes: BigNumber
   name: string
   description: string
   uri: string
-  votes: number
-  voted: false
+}
+
+export type Proposal = {
+  owner: string
+  id: BigNumber
+  name: string
+  uri: string
+  optionIds: BigNumber[]
+  numVoters: BigNumber
+  options: Option[]
 }
 
 export const useProposals = () => {
@@ -18,27 +29,32 @@ export const useProposals = () => {
 
   if (error) console.log(error)
 
-  useEffect(() => {
-    const getProposals = async () => {
-      setLoading(true)
-        let currProposals = [];
-        let proposalCounter = (await vote.proposalCounter()).toNumber();
-      
-        for (let index = 0; index < proposalCounter; index++) {
-          let proposal = {} as Proposal;
-          proposal.id = index;
-          proposal.name = "sample name";
-          proposal.description = "sample description";
-          proposal.uri = await vote.proposals(index);
-          proposal.votes = await (await vote.votes(index)).toNumber();
-          proposal.voted = false;
-          currProposals.push(proposal);
+  const getProposals = async () => {
+    setLoading(true)
+      let currProposals = [] as Proposal[]
+      const proposalCounter = (await vote.numProposals()).toNumber();
+      console.log(`There are ${proposalCounter} proposals`);
+      for (let proposalId = 0; proposalId < proposalCounter; proposalId++) {
+        // let proposal = {} as Proposal;
+        const result = await vote.getProposal(proposalId);
+        const optionIds = result.optionIds;
+        const options = await vote.getOptions(optionIds);
+        // const cleanOptions = optionToNumber(options);
+        console.log('options is use-proposals', options);
+        let proposal = { 
+          ...result,
+          options
         }
-        console.log("currProposals", currProposals)
-        setProposals(currProposals);
-        setLoading(false);
-    };
+        /* need to convert BigNumber to number*/
+        // const cleanProposal = toNumber(proposal);
+        currProposals.push(proposal);
+      }
+      console.log("currProposals", currProposals)
+      setProposals(currProposals);
+      setLoading(false);
+  };
 
+  useEffect(() => {
     getProposals().catch((error) => {
       setError(error);
       setLoading(false);
@@ -48,33 +64,9 @@ export const useProposals = () => {
 
   return {
     proposals,
+    getProposals,
+    setError,
     loading,
     error
   }
 }
-
-
-// const getProposals = async () => {
-//   let proposals = [];
-//   setLoading(true)
-//   try {
-//     let proposalCounter = (await vote.proposalCounter()).toNumber();
-  
-//     for (let index = 0; index < proposalCounter; index++) {
-//       let proposal = {};
-//       proposal["id"] = index;
-//       proposal["uri"] = await vote.proposals(index);
-//       proposal["votes"] = await (await vote.votes(index)).toNumber();
-//       proposals.push(proposal);
-//     }
-//     console.log("proposals", proposals);
-//   } catch (error) {
-//     setError(error);
-//   }
-//   return proposals;
-// };
-
-// const getStatus = async () => {
-//   const voted = await vote.voted[account];
-//   return voted;
-// };

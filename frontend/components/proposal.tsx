@@ -1,18 +1,29 @@
-import { useContract } from "../hooks/contract";
+import type { Proposal, Option } from "../hooks/use-proposals"
+import { OptionView } from "./option";
+import { Vote } from "./vote";
+import { useState, useEffect } from "react";
 
-export const Proposal = ({ proposal }) => {
-  const voteMessage =
-    proposal.votes === 1
-      ? `${proposal.votes} Vote For`
-      : `${proposal.votes} Votes For`;
-
+export const ProposalView = (
+  { proposal, sendVote }: {proposal: Proposal, sendVote: any
+  }) => {
   return (
-    <div key={proposal.id} style={{ display: "flex", gap: 16 }}>
-      <p>ID: {proposal.id}</p>
-      <p style={{ color: "dodgerblue" }}>{voteMessage}</p>
+    <div key={proposal.id.toNumber()}>
+      <p>{proposal.name}</p>
       <p>
-        <a href={proposal.uri}>Details</a>
+        <a style={{ color: "dodgerblue" }}  target="_blank" href={proposal.uri}>Details</a>
       </p>
+      {proposal.options && 
+        proposal.options
+        .map((option, index) => (
+          <div key={index}>
+            <OptionView option={option}/>
+            <Vote
+              option={option}
+              voted={false}
+              sendVote={sendVote}
+            />
+          </div>
+        ))}
     </div>
   );
 };
