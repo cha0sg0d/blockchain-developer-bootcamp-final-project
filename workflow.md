@@ -1,11 +1,12 @@
 - [x] Mint an NFT with Scaffold Eth and hardhat
 - [x] Set up my Hardhat testing env 
-- [x] Test basic NFT mint
 - [x] Write deploy script `yh run scripts/deploy.ts --network localhost`
 - [x] Connect a wallet in frontend (thanks next.js and web3-react)
 - [x] Connect to Reward contract via frontend
 - [x] Approve tx with metamask
 - [x] Add best practices + security measures for smart contract
-- [ ] Simple whitelist rule
-- [ ] Make NFT cool? 
 - [x] view data from contract in frontend 
+- [x] Simple whitelist rule
+- [x] Add error, data, loading symbols 
+- [x] add structs for better data about proposals
+- [ ] make sure user is on Rinkeby (wallet flow logic)

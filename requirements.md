@@ -42,7 +42,7 @@ Please answer the following questions. Does your project:
     - [x] Connects to the current account
     - [x] Displays information from your smart contract
     - [x] Allows a user to submit a transaction to update smart contract state
-    - [x] Basic styling
+    - [ ] Basic styling (https://www.npmjs.com/package/react-ens-name)
     - [ ] Updates the frontend if the transaction is successful or not?
 
 8. Hosted on Github Pages, Heroku, Netlify, Fleek, or some other free frontend service that gives users a public interface to your decentralized application? (That address should be in your README.md document) YES/NO
