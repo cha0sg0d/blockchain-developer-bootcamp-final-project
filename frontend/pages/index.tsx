@@ -66,7 +66,7 @@ export default function Home() {
           <Landing/>
         ) : (
           <p className={styles.description}>
-            Easy on-chain voting for gamers
+            On-chain voting for DAOs on <b>Rinkeby Testnet</b>
           </p>
         )}
       </main>

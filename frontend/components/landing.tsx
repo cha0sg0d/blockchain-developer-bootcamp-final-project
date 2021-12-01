@@ -19,19 +19,28 @@ export const Landing = () => {
       setError(null);
       setSuccess(null);
       setVoted(false);
+      setLoading(true);
       /* nonce item */
       const voteTx = await vote.vote(option.proposalId, option.id);
       console.log("voteTx", voteTx);
       await voteTx.wait();
       setVoted(true);
       setSuccess("Vote recorded");
+      setLoading(false);
     } catch (error) {
       console.log("error in sendVote", error);
       setError(error);
     }
   };
 
-  const {proposals, loading, error, getProposals, setError } = useProposals();
+  const {
+    proposals, 
+    loading, 
+    error, 
+    getProposals, 
+    setError,
+    setLoading
+  } = useProposals();
 
   const [voted, setVoted] = useState(false);
   const [success, setSuccess] = useState(null);

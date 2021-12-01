@@ -66,6 +66,7 @@ export const useProposals = () => {
     proposals,
     getProposals,
     setError,
+    setLoading,
     loading,
     error
   }

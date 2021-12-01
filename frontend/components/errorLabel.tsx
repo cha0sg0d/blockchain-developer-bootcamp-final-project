@@ -7,6 +7,5 @@ const styles = {
 };
 
 export function ErrorLabel({ error }) {
-  console.log("error in ErrorLabel", error);
   return error ? <p style={styles}>Error: {error.message}</p> : null;
 }

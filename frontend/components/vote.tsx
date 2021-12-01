@@ -12,30 +12,10 @@ export const Vote = (
 
   const { library } = useWeb3React();
 
-  // const buttonText = votedFor
-  //   ? "Voted For"
-  //   : voted
-  //   ? `Already Voted`
-  //   : `Vote Yes`;
-
-  // console.log("signer", library.getSigner());
-  // const sendVote = async (option, vote) => {
-  //   try {
-  //     /* nonce item */
-  //     const voteTx = await vote.vote(option.proposalId, option.id);
-  //     console.log("voteTx", voteTx);
-  //     await voteTx.wait();
-  //     // setVoted(true);
-  //   } catch (error) {
-  //     console.log("vote failed: ", error);
-  //   }
-  // };
-
   return (
     <button
       onClick={() => sendVote(option, vote)}
       disabled={voted}
-      // className={votedFor ? styles.voteButtonFor : styles.voteButton}
     >
       {"Vote for " + option.name}
     </button>
