@@ -7,7 +7,13 @@ import "@typechain/hardhat";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
 
-dotenv.config();
+const result = dotenv.config()
+
+if (result.error) {
+  throw result.error
+} 
+
+// console.log(result.parsed)
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -28,15 +34,10 @@ const config: HardhatUserConfig = {
     hardhat: {
       chainId: 1337,
     },
-    ropsten: {
-      url: process.env.ROPSTEN_URL || "",
-      accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    rinkeby: {
+      url: `${process.env.RINKEBY_URL}`,
+      accounts: [`${process.env.RINKEBY_ETH_WALLET_PRIVATE_KEY}`],
     },
-  },
-  gasReporter: {
-    enabled: process.env.REPORT_GAS !== undefined,
-    currency: "USD",
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
