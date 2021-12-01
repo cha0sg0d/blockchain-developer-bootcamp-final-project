@@ -67,7 +67,7 @@ contract Vote is Ownable {
   /// @param _proposalId id for current proposal
   modifier notVoted(uint256 _proposalId) {
     Proposal storage proposal = proposals[_proposalId];
-    require(proposal.votes[msg.sender] < 10, "max 10 votes");
+    require(proposal.votes[msg.sender] == 0, "already voted");
     _;
   }
 
