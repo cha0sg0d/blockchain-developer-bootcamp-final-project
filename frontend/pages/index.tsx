@@ -1,11 +1,10 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
-
 import { injected } from "../components/wallet/connector";
 import { Landing } from "../components/landing";
 import { useWeb3React } from "@web3-react/core";
 import { AddressDisplayEnum, ENSName } from "react-ens-name";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const {
@@ -63,11 +62,11 @@ export default function Home() {
       </header>
 
       <main className={styles.main}>
-        {active ? (
-          <Landing />
+        {active ?(
+          <Landing/>
         ) : (
           <p className={styles.description}>
-            Simple on-chain voting for gamers
+            Easy on-chain voting for gamers
           </p>
         )}
       </main>
