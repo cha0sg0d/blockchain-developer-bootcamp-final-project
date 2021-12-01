@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.4;
 
-import "hardhat/console.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Vote is Ownable { 
@@ -61,7 +60,8 @@ contract Vote is Ownable {
 
   modifier notVoted(uint256 _proposalId) {
     Proposal storage proposal = proposals[_proposalId];
-    require(proposal.votes[msg.sender] == 0, "already voted");
+    // TODO: Put this back after testing
+    // require(proposal.votes[msg.sender] == 0, "already voted");
     _;
   }
 
@@ -114,7 +114,7 @@ contract Vote is Ownable {
     return tempOptions;
   }
 
-  function vote (uint256 _proposalId, uint256 _optionId) public isWhitelisted notVoted(_proposalId)  {
+  function vote (uint256 _proposalId, uint256 _optionId) public isWhitelisted notVoted(_proposalId) {
     Option storage option = options[_optionId];
     Proposal storage proposal = proposals[_proposalId];
     /* increment vote for proposal */
