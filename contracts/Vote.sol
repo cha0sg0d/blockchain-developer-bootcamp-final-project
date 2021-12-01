@@ -3,6 +3,10 @@ pragma solidity 0.8.4;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+/// @title On chain voting
+/// @author cha0sg0d
+/// @notice You can use this contract for simple voting proposals
+/// @dev This are experimental contracts - use carefully
 contract Vote is Ownable { 
   uint256 public numProposals;
   uint256 public numOptions;
@@ -52,24 +56,33 @@ contract Vote is Ownable {
     numOptions = 1;
   }
 
+  /// @notice Allows for gating of who can vote for a proposal
   modifier isWhitelisted() {
     // TODO: add real whitelist gating
     require(true, "Not whitelisted");
     _;
   }
 
+  /// @notice Allows for gating of who can vote for a proposal
+  /// @param _proposalId id for current proposal
   modifier notVoted(uint256 _proposalId) {
     Proposal storage proposal = proposals[_proposalId];
-    // TODO: Put this back after testing
-    // require(proposal.votes[msg.sender] == 0, "already voted");
+    require(proposal.votes[msg.sender] < 10, "max 10 votes");
     _;
   }
 
+  /// @notice Access for control for proposalOwner
+  /// @param _proposalId id for current proposal
   modifier onlyProposalOwner(uint256 _proposalId){
     require(proposals[_proposalId].owner == msg.sender, "not proposal owner");
     _;
   }
 
+  /// @notice Create a proposal here
+  /// @param _name name for current proposal
+  /// @param _uri uri for current proposal
+  /// @param _options options for current proposal
+  /// @dev might be easier to call this from a script due to data complexity
   function createProposal (string calldata _name, string calldata _uri, UserOption[] calldata _options) external onlyOwner {
     /* moment where proposal is allocated to storage */
     Proposal storage proposal = proposals[numProposals];
@@ -94,6 +107,9 @@ contract Vote is Ownable {
     numProposals++;
   }
 
+  /// @notice Fetch a proposal
+  /// @param _proposalId id for current proposal
+  /// @return List of User Proposals
   function getProposal (uint256 _proposalId) public view returns (UserProposal memory) {
     Proposal storage proposal = proposals[_proposalId];
     return UserProposal(
@@ -106,6 +122,9 @@ contract Vote is Ownable {
     );
   }
 
+  /// @notice Fetch multiple options
+  /// @param _optionIds list of current options
+  /// @return List of Options
   function getOptions(uint256[] memory _optionIds) public view returns (Option[] memory) {
     Option[] memory tempOptions = new Option[](_optionIds.length);
     for (uint256 index = 0; index < _optionIds.length; index++) {
@@ -113,7 +132,9 @@ contract Vote is Ownable {
     }
     return tempOptions;
   }
-
+  /// @notice Vote for a proposal
+  /// @param _proposalId id of current proposals
+  /// @param _optionId id of current options
   function vote (uint256 _proposalId, uint256 _optionId) public isWhitelisted notVoted(_proposalId) {
     Option storage option = options[_optionId];
     Proposal storage proposal = proposals[_proposalId];
@@ -126,6 +147,8 @@ contract Vote is Ownable {
     proposal.numVoters++;
   }
 
+  /// @notice Destroy the contract
+  /// @dev Only for extreme cases
   function terminate() public onlyOwner {
     selfdestruct(payable (owner()));
   }
