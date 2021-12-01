@@ -8,7 +8,7 @@ The current most popular voting solution, Snapshot, does not have voting on chai
 I have created Starshot, a simple Dapp for on-chain voting.
 
 ### Deployed Frontend
-(starshot)[https://starshot-voting-cha0sg0d.vercel.app]
+[starshot](https://starshot-voting-cha0sg0d.vercel.app)
 
 ### Admin flow
 *Note: must be owner of contract*
