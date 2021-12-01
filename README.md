@@ -1,16 +1,32 @@
-# Astral Colossus NFT Claim
+# Starshot
+### Description
+With the increasing effectiveness of L2 solutions for Ethereum, it is likely that on-chain voting will occur more often.
 
-A user can mint an NFT if they have scored points on the Astral Colossus contract
+The current most popular voting solution, Snapshot, does not have voting on chain.
+I have created Starshot, a simple Dapp for on-chain voting.
 
-User Flow: 
+**Admin flow**  
+*Note: must be owner of contract*
+1. Create a proposal and list the options that can be voted on
 
+**User flow**
 1. Login with Metamask
-2. If not whitelisted, end flow
-3. If whitelisted (via verifying with Astral Colossus), user can mint 1 NFT on xDai
+2. Vote for one option for the specified proposal.
 
-Nice to have features:
-1. Pay the gas for the minting
-2. Limit participants to the time frame of the Dark Forest round.
+### Directory structure
+- `contracts/` contains the `Vote.sol` contract.
+- `test/` containts the `vote.ts` testing script.
+- `scripts/` contains the `deploy.ts` deployment script and populates a sample proposal.
+- `frontend` contains the frontend.
+### How to Run 
+1. `git clone 
+
+### Verified Public Contract on Rinkeby
+[contract](https://rinkeby.etherscan.io/address/0x697E6d5f8053Af5AeE6cD6f7eCEb81764CfCB84f)
+
+### Public Ethereum address
+`tonygoss.eth`
+
 
 
 

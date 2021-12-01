@@ -9,4 +9,5 @@
 - [x] Simple whitelist rule
 - [x] Add error, data, loading symbols 
 - [x] add structs for better data about proposals
+- [ ] update frontend to show if tx successful
 - [ ] make sure user is on Rinkeby (wallet flow logic)
