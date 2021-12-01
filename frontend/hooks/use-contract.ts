@@ -1,7 +1,7 @@
 import { useWeb3React } from "@web3-react/core"
 import { ethers } from "ethers";
-import { Vote } from "../../typechain"
-import VOTE from '../../artifacts/contracts/Vote.sol/Vote.json'
+import { Vote } from "../typechain"
+import VOTE from '../abis/Vote.json'
 
 export const useContract = () => {
   const VOTE_ADDRESS = '0x697E6d5f8053Af5AeE6cD6f7eCEb81764CfCB84f';
