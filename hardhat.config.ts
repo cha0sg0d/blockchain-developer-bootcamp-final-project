@@ -35,12 +35,12 @@ const config: HardhatUserConfig = {
       chainId: 1337,
     },
     rinkeby: {
-      url: `${process.env.RINKEBY_URL}`,
-      accounts: [`${process.env.RINKEBY_ETH_WALLET_PRIVATE_KEY}`],
+      url: `${process.env.RINKEBY_URL} || ''`,
+      accounts: [`${process.env.RINKEBY_ETH_WALLET_PRIVATE_KEY}`] || [],
     },
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY,
+    apiKey: process.env.ETHERSCAN_API_KEY || '',
   },
 };
 
