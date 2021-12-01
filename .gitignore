@@ -4,3 +4,8 @@ cache/
 artifacts/
 yarn.lock
 yarn-error.log
+
+# Local Netlify folder
+.netlify
+
+.env
