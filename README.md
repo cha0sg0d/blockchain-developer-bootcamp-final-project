@@ -13,6 +13,9 @@ I have created Starshot, a simple Dapp for on-chain voting.
 1. Login with Metamask
 2. Vote for one option for the specified proposal.
 
+### Video Demo
+[demo](https://youtu.be/p1juVNKOWVU)
+
 ### Directory structure
 - `contracts/` contains the `Vote.sol` contract.
 - `test/` containts the `vote.ts` testing script.
